@@ -1,0 +1,13 @@
+.file-name {
+   min-height: 40px;
+}
+
+.status-bar {
+    
+    background-color: rgb(41, 157, 230);
+    color:white;
+    border-radius: 15px;
+    width: 140px;
+    text-align: center;
+    margin-left: 12px;
+}

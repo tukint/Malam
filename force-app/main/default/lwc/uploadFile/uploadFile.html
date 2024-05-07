@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Upload Contacts" style="display: block; max-width: 600px;">
+        <div class="slds-m-around_medium">
+            <lightning-input type="file" label="Select CSV File" accept=".csv" onchange={handleFileChange}></lightning-input>
+            
+            <div class="file-name">
+                <template if:true={fileName}>
+                    <div class="slds-m-top_small">
+                        <span>File Selected: {fileName}</span>
+                        <lightning-button-icon 
+                            icon-name="utility:close"
+                            alternative-text="Remove file"
+                            onclick={clearFile}
+                            variant="bare"
+                            size="small"
+                            class="slds-m-left_small"
+                        ></lightning-button-icon>
+                    </div>
+                </template>
+            </div>
+                    
+            <lightning-button 
+                label="Upload and Process" 
+                variant="brand" 
+                onclick={handleUpload}
+                class="slds-m-top_medium"
+                disabled={isUploadButtonDisabled}
+            ></lightning-button>
+        </div>
+        <div class="status-bar" >{status}</div>
+    </lightning-card>
+</template>

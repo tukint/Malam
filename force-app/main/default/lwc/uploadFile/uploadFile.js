@@ -1,5 +1,5 @@
 import { LightningElement, track } from 'lwc';
-import processUploadedContent from '@salesforce/apex/ContactsCreateBatch.processUploadedContent';
+import processUploadedContent from '@salesforce/apex/ContactsBatchController.processUploadedContent';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class UploadContactsFile extends LightningElement {
@@ -36,6 +36,7 @@ export default class UploadContactsFile extends LightningElement {
                 this.clearFile();
             })
             .catch(error => {
+                this.status = 'Error'
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error processing file',
